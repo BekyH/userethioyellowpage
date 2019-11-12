@@ -13,8 +13,7 @@ import home from './components/home.vue';
 import aboutus from './components/aboutus.vue';
 
 
-import gallery from './components/gallery.vue';
-import map from './components/map.vue';
+
 import '@mdi/font/css/materialdesignicons.css';
 import ajax from "vuejs-ajax";
 import axios from 'axios';
@@ -36,8 +35,7 @@ Vue.component('compfooter',footer)
 Vue.component('comphome',home)
 Vue.component('aboutus',aboutus)
 
-Vue.component('gallery',gallery)
-Vue.component('map',map)
+
 
 
 let router = new VueRouter({
@@ -53,24 +51,15 @@ let router = new VueRouter({
     component:home
     },
     
-    {
-      path:'/map',
-      name:'Map',
-      component:map
-    },
-    { 
-      path:'/gallery',
-      name:'Gallery',
-      component:gallery
-
-    },
+    
     {
       path:'/aboutus',
       name:'about',
       component:aboutus
-    }
+    },
    
-  ]
+  ],
+
 })
 new Vue({
   el:"#app",

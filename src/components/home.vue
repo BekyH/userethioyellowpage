@@ -72,182 +72,300 @@
               view</v-btn>
       </v-flex>
   </v-layout>
-        <v-layout
-          align-center 
-          justify-center
-        >
-          <v-flex >
-              <div v-if="selected==='Bank and finanicials'" >
-              <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(Bank,index) in Banks" :key="index">
-              <v-flex class="ml-5">
-              <v-card-title >
+        
+          
+        <div v-if="selected==='Bank and finanicials'" >
+          <v-layout row wrap>
+                <v-flex xs12 md6  v-for="(Bank,index) in Banks" :key="index">
+                  <v-col cols="12">
+              <v-card style="margin:10px; border-radius:15px;" >
+              <v-layout row wrap>
+                    <v-flex xs6 md6>
+                      <v-flex class="ml-5 pt-3">
+                <v-card-title >
                   <div>{{Bank.name}}</div>
               </v-card-title>
+                
+              
              <v-card-text class="pt-1">
-                <v-icon size="18px">fas fa-phone</v-icon> {{Bank.phoneNo}}
+               <v-icon size="18px"> fas fa-phone</v-icon>
+               {{Bank.phoneNo}}
+               
              </v-card-text>
                
               <v-card-text class="pt-1">
-                    <v-icon size="16px">fas fa-address-card</v-icon> {{Bank.email}}
+                <v-icon size="16px">fas fa-envelope</v-icon>
+                    {{Bank.email}}
                   
                 </v-card-text>
                <v-card-text class="pt-1">
-                <v-icon size="16px">fas fa-city</v-icon>{{Bank.city}}
+                {{Bank.city}}
               </v-card-text>
               </v-flex>
-              <v-flex offset-10>
+                    </v-flex>
+                    <v-flex  xs6 md5 class="pt-3">
+                      <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + Bank.image"/>
+                    </v-flex>
+                </v-layout>
+              <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click="getBankLocation(Bank)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
          </v-card>
-            
+                  </v-col>
+                </v-flex>
+          </v-layout>
             </div>
             <div v-else-if="selected==='Industries'">
-            <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(industry,index) in Industries" :key="index">
-              <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6  v-for="(industry,index) in Industries" :key="index">
+                  <v-col cols="12">
+            <v-card style="margin:10px; border-radius:15px; width:999px;" >
+              <v-layout row wrap>
+                  <v-flex xs6 md5>
+                    <v-flex class="ml-5 pt-3">
+                <v-card-title >
                   <div>{{industry.name}}</div>
               </v-card-title>
-              <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon>{{industry.phoneNo}}</v-card-text>
-              <v-card-text class="pt-1"> <v-icon size="16px">fas fa-address-card</v-icon>{{industry.email}}</v-card-text>
+                
+              
+              <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon> {{industry.phoneNo}}</v-card-text>
+              <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{industry.email}}</v-card-text>
               <v-card-text class="pt-1">
                 {{industry.city}}
               </v-card-text>
               </v-flex>
-              <v-flex offset-10>
+                  </v-flex>
+                  <v-flex  xs6 md6 class="pt-3">
+                    <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + industry.image"/>
+                  </v-flex>
+              </v-layout>
+              
+              <v-flex offset-9>
                 <v-card-actions>
                     <v-btn color="primary" @click="getIndustryLocation(industry)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-card>
+                  </v-col>
+                </v-flex>
+              </v-layout>
             
             </div>
             <div v-else-if="selected==='Transport'">
-            <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(transport,index) in transports" :key="index">
-              <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6  v-for="(transport,index) in transports" :key="index">
+                  <v-col cols="12">
+            <v-card style="margin:10px; border-radius:15px; width:999px;" >
+              <v-layout row wrap>
+                <v-flex xs6 md6>
+                   <v-flex class="ml-5 pt-3">
+                 <v-card-title >
                   <div>{{transport.name}}</div>
               </v-card-title>
-                <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon>{{transport.phoneNo}}</v-card-text>
-                <v-card-text class="pt-1">  <v-icon size="16px">fas fa-address-card</v-icon>{{transport.email}}</v-card-text>
+                
+             
+                <v-card-text class="pt-1" > <v-icon size="18px">fas fa-phone</v-icon> {{transport.phoneNo}}</v-card-text>
+                <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{transport.email}}</v-card-text>
               <v-card-text class="pt-1">
                 {{transport.city}}
               </v-card-text>
               </v-flex>
-              <v-flex offset-10>
+                </v-flex>
+                <v-flex xs6 md5 class="pt-3">
+                    <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + transport.image"/>
+                </v-flex>
+              </v-layout>
+              <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click="getTransLocation(transport)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-card>
-             
+                  </v-col>
+                </v-flex>
+              </v-layout>
             </div>
             <div v-else-if="selected==='Health and medicine'">
-            <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(medicine,index) in health" :key="index">
-              <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6  v-for="(medicine,index) in health" :key="index">
+                  <v-col cols="12">
+            <v-card style="margin:10px; border-radius:15px; width:999px;" >
+              <v-layout row wrap>
+               <v-flex xs6 md6>
+                 <v-flex class="ml-5 pt-3">
+                <v-card-title >
                   <div>{{medicine.name}}</div>
+                  
               </v-card-title>
-             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon>{{medicine.phoneNo}}</v-card-text>
-             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-address-card</v-icon>{{medicine.email}}</v-card-text>
+                 
+              
+             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon> {{medicine.phoneNo}}</v-card-text>
+             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{medicine.email}}</v-card-text>
               <v-card-text>
                 {{medicine.city}}
               </v-card-text>
               </v-flex>
-              <v-flex offset-10>
+               </v-flex>
+                <v-flex  xs6 md5 class="pt-3">
+                <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + medicine.image"/>    
+               </v-flex>
+              </v-layout>
+              <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click=" getMedicalLocation(medicine)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-card>
-            
+                  </v-col>
+                </v-flex>
+              </v-layout>
              
             </div>
             <div v-else-if="selected==='Construction'">
-            <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(constr,index) in constructions" :key="index">
-              <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6  v-for="(constr,index) in constructions" :key="index">
+                  <v-col cols="12">
+            <v-card style="margin:10px; border-radius:15px; width:999px;" >
+             <v-layout row wrap>
+                <v-flex xs6 md5>
+                  <v-flex class="ml-5 pt-3">
+                <v-card-title >
                   <div>{{constr.name}}</div>
               </v-card-title>
-             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon>{{constr.phoneNo}}</v-card-text>
-             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-address-card</v-icon>{{constr.email}}</v-card-text>
+                
+              
+             <v-card-text class="pt-1"><v-icon size="18px">fas fa-phone</v-icon> {{constr.phoneNo}}</v-card-text>
+             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{constr.email}}</v-card-text>
               <v-card-text class="pt-1">
                 {{constr.city}}
               </v-card-text>
               </v-flex>
-             <v-flex offset-10>
+                </v-flex>
+                <v-flex xs6 md6 class="pt-3">
+                  <v-img  style="height:280px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + constr.image"/>
+                </v-flex>
+              </v-layout>
+             <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click=" getConstrLocation(constr)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-card>
-            
+                  </v-col>
+                </v-flex>
+              </v-layout>
             </div>
             <div v-else-if="selected==='Communication'">
-            <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(comn,index) in communications" :key="index">
-              <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6   v-for="(comn,index) in communications" :key="index">
+                  <v-col cols="12">
+            <v-card style="margin:10px; border-radius:15px; width:999px;">
+
+              <v-layout>
+                <v-flex xs6 md5>
+                  <v-flex class="ml-5 pt-3">
+                <v-card-title >
                   <div>{{comn.name}}</div>
               </v-card-title>
-             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon>{{comn.phoneNo}}</v-card-text>
-             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-address-card</v-icon>{{comn.email}}</v-card-text>
+                
+              
+             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon> {{comn.phoneNo}}</v-card-text>
+             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{comn.email}}</v-card-text>
               <v-card-text>
                 {{comn.city}}
               </v-card-text>
-               <v-flex offset-10>
+               
+              </v-flex>
+                </v-flex>
+                <v-flex xs6 md6 class="pt-3">
+                  <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + comn.image"/>
+                </v-flex>
+              </v-layout>
+               <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click="getComnLocation(comn)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
-              </v-flex>
+              
               
             </v-card>
-          
+                  </v-col>
+                </v-flex>
+              </v-layout>
             
             </div>
             <div v-else-if="selected==='Technology'">
-            <v-card style="margin:10px; border-radius:15px; width:999px;" v-for="(techno,index) in technologies" :key="index">
-             <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6 v-for="(techno,index) in technologies" :key="index">
+                  <v-col cols="12">
+            <v-card style="margin:10px; border-radius:15px; width:999px;" >
+             <v-layout>
+                <v-flex xs6 md5>
+                  <v-flex class="ml-5 pt-3">
+                <v-card-title >
                   <div>{{techno.name}}</div>
               </v-card-title>
-             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon>{{techno.phoneNo}}</v-card-text>
-             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-address-card</v-icon>{{techno.email}}</v-card-text>
+              
+             
+             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon> {{techno.phoneNo}}</v-card-text>
+             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{techno.email}}</v-card-text>
               <v-card-text class="pt-1">
                 {{techno.city}}
               </v-card-text>
              </v-flex>
-             <v-flex offset-10>
+                </v-flex>
+                <v-flex xs6 md7 class="pt-3">
+                   <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + techno.image"/>
+                </v-flex>
+              </v-layout>
+             <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click="getTechnoLocation(techno)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-card>
-            
+                  </v-col>
+                </v-flex>
+              </v-layout>
             </div>
             <div v-else-if="selected==='Toursim'">
-            <v-card class="elevation-20" height='100%' style="margin:10px; border-radius:15px;" v-for="(toursim,index) in toursims" :key="index">
-               <v-flex class="ml-5">
-              <v-card-title >
+              <v-layout row wrap>
+                <v-flex xs12 md6  v-for="(toursim,index) in toursims" :key="index">
+                  <v-col cols="12">
+            <v-card class="elevation-20" height='100%' style="margin:10px; border-radius:15px;" >
+               <v-layout row wrap>
+                <v-flex xs6 md5>
+                  <v-flex class="ml-5 pt-3">
+                 <v-card-title >
                   <div>{{toursim.name}}</div>
               </v-card-title>
-             <v-card-text class="pt-1"> <v-icon size="18px">fas fa-phone</v-icon> {{toursim.phoneNo}}</v-card-text>
-             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-address-card</v-icon>{{toursim.email}}</v-card-text>
+                 
+              
+             <v-card-text class="pt-1"><v-icon size="18px">fas fa-phone</v-icon> {{toursim.phoneNo}}</v-card-text>
+             <v-card-text class="pt-1"> <v-icon size="16px">fas fa-envelope</v-icon> {{toursim.email}}</v-card-text>
               <v-card-text class="pt-1">
                 {{toursim.city}}
               </v-card-text>
                </v-flex>
-              <v-flex offset-10>
+                </v-flex>
+                <v-flex xs6 md6 class="pt-3">
+                    <v-img  style="height:250px;width:400px;" :src="'http://localhost:3000/api/containers/image/download/' + toursim.image"/>
+                </v-flex>
+               </v-layout>
+              <v-flex offset-9>
                 <v-card-actions>
                   <v-btn color="primary" @click="getTourismLocation(toursim)">view map</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-card>
-            
+                  </v-col>
+                </v-flex>
+              </v-layout>
             </div>
-          </v-flex>
-        </v-layout>
+          
+      
       </v-container>
 
     
@@ -256,7 +374,7 @@
     
 </template>
 <script>
-import axios from 'axios';
+
 const APi = 'http://localhost:3000/api/banks';
 const APi2 = 'http://localhost:3000/api/industries';
 const APi8 = 'http://localhost:3000/api/Health';
@@ -265,12 +383,12 @@ const APi4 = 'http://localhost:3000/api/communications';
 const APi5 = 'http://localhost:3000/api/transports';
 const APi6 = 'http://localhost:3000/api/technologies';
 const APi7 = 'http://localhost:3000/api/tourisms';
-import { get } from 'http';
+
 export default {
     data(){
         return {
           clicked:false,
-            selected:'',
+            selected:'Bank and finanicials',
            
              options:[
                 'Bank and finanicials',
@@ -408,7 +526,9 @@ export default {
                     
                     .then(res=>this.Banks=res)
 
-                    .catch((err)=>console.log(err))
+                    .catch(()=>{
+                      
+                    })
                     
                     
                     
@@ -582,6 +702,15 @@ export default {
                   })
                 }
 
+        },
+        mounted(){
+          if(this.selected==='Bank and finanicials'){
+            this.getBank();
+          }
+            
+          
+        
+          
         }
 
     }

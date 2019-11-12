@@ -208,5 +208,4 @@ const element = document.getElementById(this.mapName)
 };
 
 
-// key = 'AIzaSyBnvRgsyru36vmM7Hz1LuMQmqdHtkag7sI'; google map api key
 </script>
