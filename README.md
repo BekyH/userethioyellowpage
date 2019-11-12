@@ -27,4 +27,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-it has backend buit in loopback which found on https://github.com/BekyH/ethioyellowpageserver
+it has backend buit in loopback which found on https://github.com/BekyH/ethioyellowpageserver and the admin part is found on https://github.com/BekyH/ethioyellowpageadmin
