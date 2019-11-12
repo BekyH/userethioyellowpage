@@ -2,7 +2,9 @@
 <v-app>
   <compheader></compheader>
   <v-content>
+    
   <router-view/>
+    
   </v-content>
   <compfooter></compfooter>
 </v-app>
